@@ -54,7 +54,7 @@ pinned_repos_urls_array = []
 doc.css("div.js-pinned-items-reorder-container a span").each {|span|
 pinned_repos_urls_array <<  github_url + '/' + span.attribute("title")}
 data[:pinned_repos_urls] = pinned_repos_urls_array
-data[:conterbutions] = doc.css("h2.f4.text-normal")[1].content.split('c')[0]
+data[:conterbutions] = doc.css("h2.f4.text-normal")[1].content.split('c')[0].strip
 def url_exist?(url_string)
   url = URI.parse(url_string)
   req = Net::HTTP.new(url.host, url.port)
@@ -75,7 +75,7 @@ puts "Name".yellow +  ':' "#{data[:name]}".light_green
 puts "Git hub username".yellow +  ':' "#{data[:github_account]}".light_green
 puts "profile picture url".yellow +  ':' "#{data[:picture_url]}".light_green
 puts "about".yellow +  ':' "#{data[:about]}".light_green
-puts "number of last year's conterbutions".yellow +  ':' "#{data[:conterbutions]}".light_green
+puts "number of conterbutions last".yellow +  ':' "#{data[:conterbutions]}".light_green
 puts "pinned repostitories".light_blue
 puts "1) #{data[:pinned_repos_urls][0]}".light_magenta
 puts "2) #{data[:pinned_repos_urls][1]}".light_magenta
