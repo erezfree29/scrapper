@@ -53,6 +53,8 @@ The **./bin** folder contains the executable **scrapper.rb**  file.
 
 In addition to the above, the repo also contains .
 rubocop.yml for linting.
+license file for am Mit license
+This readme file.
 
 Gemfile where the gems(which allow additional important functionality) are listed gems used are
 gem 'rubysl-open-uri', '~> 2.0'  #used for impotring plain html text from the website
@@ -72,4 +74,4 @@ If you've read this far....give a star to this project ⭐️!
 
 ## 📝 License
 
-This project has no licence.
+This project has an Mit License ,description can be found in the license file in the root directory.
