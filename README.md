@@ -1,6 +1,6 @@
 # Scrapper
 
-![tictactoe-example](https://cdn.pixabay.com/photo/2017/02/25/10/53/board-2097446_1280.jpg)
+![tictactoe-example](https://res.cloudinary.com/erezfriemagor/image/upload/v1615212764/2021-03-08_14_11_11-erez_DESKTOP-JP7JKBA___scrapping_project_bin.png)
 
 
 ## Built With
