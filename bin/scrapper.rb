@@ -39,7 +39,7 @@ until url_exists?(github_url)
 end
 
 # get plain text of html
-html = open(github_url).read
+html = open(github_url)
 # make plain text into type doc
 doc = Nokogiri::HTML(html)
 # get data from url

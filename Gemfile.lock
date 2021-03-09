@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    anchored (1.1.0)
+    colorize (0.8.1)
+    csv (0.0.1)
+    nokogiri (1.11.1-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.5.2)
+    rubysl-open-uri (2.0.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  anchored
+  colorize (~> 0.8.1)
+  csv (~> 0.0.1)
+  nokogiri (~> 1.11, >= 1.11.1)
+  rubysl-open-uri (~> 2.0)
+
+BUNDLED WITH
+   2.2.11
