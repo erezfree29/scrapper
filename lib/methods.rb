@@ -69,7 +69,7 @@ end
 
 # print information of a given hash
 def print_hash_info(data)
-  puts 'here is your information.'.light_blue
+  puts 'here is your information...'.light_blue
   puts "#{'Name'.yellow}:#{(data[:github_account]).to_s.light_green}"
   puts 'Git hub username'.yellow + ':' "#{data[:github_account]}".light_green
   puts 'profile picture url'.yellow + ':' "#{data[:picture_url]}".light_green
