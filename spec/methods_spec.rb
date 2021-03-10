@@ -25,26 +25,28 @@ describe 'test the fetch_githb_data method' do
 end
 
 describe 'test the create_data_hash method' do
-  let(:doc) { doc = fetch_githb_data('mimipeshy') }
+  let(:doc) { fetch_githb_data('mimipeshy') }
   let(:data_hash) { create_data_hash(doc) }
   it 'will accept an object of typeNokogiri and create a hash with all the required keys' do
     expect(data_hash.keys).to eql(%i[name github_account picture_url about
                                      pinned_repos_urls conterbutions])
   end
-  let(:values_are_string) { true }
   it "The values of the created hash should be of type string
   unless the key is :pinned_repos_urls" do
     # while iterating over the hash each value is an array,the first postion in the array
     # is the key and the second postion is the value
-    data_hash.each do |value|
-      values_are_string = false if value[1].class != (String) && value[0] != :pinned_repos_urls
+    def values_are_string?(data_hash)
+      data_hash.each do |value|
+        return false if value[1].class != (String) && value[0] != :pinned_repos_urls
+      end
+      true
     end
-    expect(values_are_string).to eql(true)
+    expect(values_are_string?(data_hash)).to eql(true)
   end
 end
 
 describe 'test the print_hash_info method' do
-  let(:doc) { doc = fetch_githb_data('mimipeshy') }
+  let(:doc) { fetch_githb_data('mimipeshy') }
   let(:data_hash) { create_data_hash(doc) }
   # get the curret library that the rspec command is going to be run from
   path = Open3.capture3('pwd')
@@ -75,7 +77,7 @@ describe 'test the print_hash_info method' do
 end
 
 describe 'test the save_to_csv method' do
-  let(:doc) { doc = fetch_githb_data('mimipeshy') }
+  let(:doc) { fetch_githb_data('mimipeshy') }
   let(:data_hash) { create_data_hash(doc) }
   it 'would create a csv file when given a hash' do
     expect(save_to_csv(data_hash).class).to eql(CSV)

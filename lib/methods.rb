@@ -76,12 +76,8 @@ def print_hash_info(data)
   puts 'about'.yellow + ':' "#{data[:about]}".light_green
   puts 'number of conterbutions last'.yellow + ':' "#{data[:conterbutions]}".light_green
   puts 'pinned repostitories'.light_blue
-  puts "1) #{data[:pinned_repos_urls][0]}".light_magenta
-  puts "2) #{data[:pinned_repos_urls][1]}".light_magenta
-  puts "3) #{data[:pinned_repos_urls][2]}".light_magenta
-  puts "4) #{data[:pinned_repos_urls][3]}".light_magenta
-  puts "5) #{data[:pinned_repos_urls][4]}".light_magenta
-  puts "6) #{data[:pinned_repos_urls][5]}".light_magenta
+  puts "#{data[:pinned_repos_urls][0]} ,#{data[:pinned_repos_urls][1]},#{data[:pinned_repos_urls][2]}".light_magenta
+  puts "#{data[:pinned_repos_urls][3]} ,#{data[:pinned_repos_urls][4]},#{data[:pinned_repos_urls][5]}".light_magenta
 end
 
 # save information to a csv file from a given hash
