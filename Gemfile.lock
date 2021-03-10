@@ -48,5 +48,8 @@ DEPENDENCIES
   rubocop (~> 0.39.0)
   rubysl-open-uri (~> 2.0)
 
+RUBY VERSION
+   ruby 2.6.6p146
+
 BUNDLED WITH
    2.2.11
