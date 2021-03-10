@@ -13,11 +13,11 @@ end
 # get selection from user
 def selection(github_url = nil)
   puts 'please enter a Github user name or a Github url'.light_green
-  if github_url == nil
-    github_url = gets.chomp.downcase
-  else
-    github_url = github_url.downcase  
-  end
+  github_url = if github_url.nil?
+                 gets.chomp.downcase
+               else
+                 github_url.downcase
+               end
   # in case that the input is the full url extract only the username
   return github_url.split('m/')[1] if
   github_url.include? 'https://github.com/'
@@ -66,25 +66,27 @@ def create_data_hash(doc)
   data[:conterbutions] = doc.css('h2.f4.text-normal')[1].content.split('c')[0].strip
   data
 end
-#print information of a given hash
+
+# print information of a given hash
 def print_hash_info(data)
- puts 'here is your information'.light_blue
- puts 'Name'.yellow + ':' + "#{data[:github_account]}".light_green
- puts 'Git hub username'.yellow + ':' "#{data[:github_account]}".light_green
- puts 'profile picture url'.yellow + ':' "#{data[:picture_url]}".light_green
- puts 'about'.yellow + ':' "#{data[:about]}".light_green
- puts 'number of conterbutions last'.yellow + ':' "#{data[:conterbutions]}".light_green
- puts 'pinned repostitories'.light_blue
- puts "1) #{data[:pinned_repos_urls][0]}".light_magenta
- puts "2) #{data[:pinned_repos_urls][1]}".light_magenta
- puts "3) #{data[:pinned_repos_urls][2]}".light_magenta
- puts "4) #{data[:pinned_repos_urls][3]}".light_magenta
- puts "5) #{data[:pinned_repos_urls][4]}".light_magenta
- puts "6) #{data[:pinned_repos_urls][5]}".light_magenta
-end  
+  puts 'here is your information'.light_blue
+  puts "#{'Name'.yellow}:#{(data[:github_account]).to_s.light_green}"
+  puts 'Git hub username'.yellow + ':' "#{data[:github_account]}".light_green
+  puts 'profile picture url'.yellow + ':' "#{data[:picture_url]}".light_green
+  puts 'about'.yellow + ':' "#{data[:about]}".light_green
+  puts 'number of conterbutions last'.yellow + ':' "#{data[:conterbutions]}".light_green
+  puts 'pinned repostitories'.light_blue
+  puts "1) #{data[:pinned_repos_urls][0]}".light_magenta
+  puts "2) #{data[:pinned_repos_urls][1]}".light_magenta
+  puts "3) #{data[:pinned_repos_urls][2]}".light_magenta
+  puts "4) #{data[:pinned_repos_urls][3]}".light_magenta
+  puts "5) #{data[:pinned_repos_urls][4]}".light_magenta
+  puts "6) #{data[:pinned_repos_urls][5]}".light_magenta
+end
+
 # save information to a csv file from a given hash
 def save_to_csv(data)
-h = ["name","github_account", "picture_url","about"]
+  h = %w[name github_account picture_url about]
   CSV.open('data.csv', 'w', write_headers: true, headers: h) do |csv|
     csv << [data[:name], data[:github_account], data[:picture_url], data[:about]]
     csv << ["number of last year's conterbutions #{data[:conterbutions]}"]
@@ -95,8 +97,5 @@ h = ["name","github_account", "picture_url","about"]
     csv << ["4) #{data[:pinned_repos_urls][3]}"]
     csv << ["5) #{data[:pinned_repos_urls][4]}"]
     csv << ["6) #{data[:pinned_repos_urls][5]}"]
-  end 
-end  
-
-
-
+  end
+end
