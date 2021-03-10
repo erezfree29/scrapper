@@ -11,9 +11,13 @@ def introduction
 end
 
 # get selection from user
-def selection
+def selection(github_url = nil)
   puts 'please enter a Github user name or a Github url'.light_green
-  github_url = gets.chomp.downcase
+  if github_url == nil
+    github_url = gets.chomp.downcase
+  else
+    github_url = github_url.downcase  
+  end
   # in case that the input is the full url extract only the username
   return github_url.split('m/')[1] if
   github_url.include? 'https://github.com/'
