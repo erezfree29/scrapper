@@ -48,9 +48,21 @@ end
 describe "test the print_hash_info method" do
   let(:doc) {doc = fetch_githb_data("mimipeshy")}
   let (:data_hash) {create_data_hash(doc)}
-  # the stdout that the function print_hash_info is saved into a variable
-  stdout, stderr, status = Open3.capture3('ruby print_hush_info.rb')
+  # get the curret library that the rspec command is going to be run from
+  path = Open3.capture3('pwd')
+  # convert the path to a string
+  path = path.join(', ')
+  if path.include?('spec')
+  # The function print_hash_info is saved into the variable stdout
+    stdout = Open3.capture3('ruby print_hush_info.rb')
+    puts "spec"
+  else
+  # The function print_hash_info is saved into the variable stdout
+    stdout = Open3.capture3('ruby spec/print_hush_info.rb')
+  end
   it "prints information of a given hash" do
+    # convert stdout into a string
+    stdout = stdout.join(', ')
     expect(stdout).to include(data_hash[:name])
     expect(stdout).to include(data_hash[:github_account])
     expect(stdout).to include(data_hash[:picture_url])
