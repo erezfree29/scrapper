@@ -37,7 +37,7 @@ describe 'test the create_data_hash method' do
     # is the key and the second postion is the value
     def values_are_string?(data_hash)
       data_hash.each do |value|
-        return false if value[1].class != (String) && value[0] != :pinned_repos_urls
+        return false if value[1].class != String && value[0] != :pinned_repos_urls
       end
       true
     end
