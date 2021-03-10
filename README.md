@@ -70,6 +70,7 @@ gem 'nokogiri', '~> 1.11', '>= 1.11.1' - converting plain text into a type doc o
 gem 'csv', '~> 0.0.1' - for writing into a new csv file
 gem 'colorize', '~> 0.8.1' - outputing colorful text to the terminal 
 gem 'rspec', '~> 3.5' used in order to create tests and run them.
+gem 'rubocop', '~> 0.39.0'desgined to ensure good coding practises
 
 ## Running the tests instructions
 In order to run the tests simply type rspec from the root folder of the project 
