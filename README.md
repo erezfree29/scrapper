@@ -52,12 +52,13 @@ The code for the project is located in the  **./bin** folder.
 The **./bin** folder contains the executable **scrapper**  file in which methods are to be run.
 The **./lib** folder contains the methods.rb file which includes the methods being used by the scrapper file.
 The **./spec** contains 
- .rspec,spec_helper.rb default rspec files
+ spec_helper.rb default rspec files
  methods_spec.rb a file created for checking all the methods in the methods.rb file
  print_hush_info.rb a file created in order to test the print_hush_info method by running the file and assigning its output to a variable
 
 
 In addition to the above, the repo also contains .
+.rspec created by the rspec gem
 rubocop.yml for linting.
 license file for am Mit license.
 data.csv file and example csv file which has been created by running the save_to_csv method.
