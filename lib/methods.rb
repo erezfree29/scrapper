@@ -1,9 +1,9 @@
-require 'bundler/setup'
-Bundler.require
+require 'colorize'
 require 'open-uri'
 require 'net/http'
 require 'set'
 require 'csv'
+require 'nokogiri'
 # introduction of the Github tool
 def introduction
   puts 'hello welcome to the github scrapper'.light_blue
