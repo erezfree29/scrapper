@@ -7,7 +7,7 @@ require 'nokogiri'
 # introduction of the Github tool
 def introduction
   puts 'hello welcome to the github scrapper'.light_blue
-  puts 'this tool is desgined to for fetching data from github quickly and saving it to a csv file'.light_blue
+  puts 'this tool is desgined for fetching data from github quickly and saving it to a csv file'.light_blue
 end
 
 # get selection from user
